@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+npx next build --webpack
+test -d out
+figma make deploy-preview --build-dir out

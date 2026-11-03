@@ -1,0 +1,47 @@
+{
+  "name": "레슨커넥트AI_랜딩페이지",
+  "reviewedAt": "2026-11-03",
+  "fileKey": "RyxzsASpQMGHSrEaHfWGgJ",
+  "fileUrl": "https://www.figma.com/design/RyxzsASpQMGHSrEaHfWGgJ",
+  "team": "일렉팩토리의 팀",
+  "sessionId": "1f055de2-4695-4687-a0c0-60236472fb47",
+  "pageId": "0:1",
+  "frames": {
+    "desktop": {"id":"2:44","width":1440,"height":1684},
+    "mobile": {"id":"2:45","width":390,"height":2835},
+    "components": {"id":"2:46","width":1900,"height":2030},
+    "code": {"id":"16:154","type":"CODE_INSTANCE","width":1512,"height":982}
+  },
+  "componentMap": [
+    {"name":"Button","nodeId":"5:3","states":"Primary / Secondary × Default / Hover / Disabled","code":"components/ui/button.tsx"},
+    {"name":"FeatureCard","nodeId":"9:147","states":"Desktop / Mobile","code":"app/page.tsx: FeatureCard"},
+    {"name":"InstructorRecommendation","nodeId":"9:148","states":"Desktop / Mobile","code":"app/page.tsx: InstructorCard"},
+    {"name":"Badge","nodeId":"4:16","code":"app/globals.css: .match-badge"},
+    {"name":"Taste Chip","nodeId":"11:147","code":"app/globals.css: .taste-chip"},
+    {"name":"Step","nodeId":"4:28","code":"app/page.tsx: steps"},
+    {"name":"Notice","nodeId":"4:42","code":"app/globals.css: .prototype-note"},
+    {"name":"Icons","nodeIds":["7:96","7:101","7:105"],"code":"app/page.tsx: FeatureCard SVG"}
+  ],
+  "verification": {
+    "nativeDesign": "Editable text, vector icons, Auto Layout, photo fills and connected component instances reviewed",
+    "componentsBoard": "Overlapping icon labels and notice specimen corrected; screenshot reviewed",
+    "productionBuild": "passed",
+    "typescript": "passed",
+    "responsiveWidths": [320,390,768,1440],
+    "localProductionBrowserTests": "4 passed",
+    "figmaHostedBrowserTests": "4 passed",
+    "nativeFigmaInteraction": "CTA opened, piano selected, completion button enabled, completion result displayed",
+    "checks": ["horizontal overflow","images and alt text","page title","CTA dialog","single selection","disabled/enabled button","Escape and focus restoration","mobile menu","FAQ","section navigation","console and page errors"]
+  },
+  "runtimeRepairs": [
+    "Move stale generated node_modules aside before Figma npm ci to prevent ENOTEMPTY",
+    "Allow only the explicit Figma preview hostname for Next development connections",
+    "Keep interactive buttons disabled until client initialization completes"
+  ],
+  "reviewDirectory": "review",
+  "handoff": {"workspace":"lessonconnect-landing.code-workspace","instructions":"CLAUDE.md"},
+  "published": false,
+  "liveServicesConnected": false,
+  "originalMobileAppFileModified": false,
+  "limitations": ["Figma Code and the local project are not automatically synchronized","Changing the Figma preview hostname requires updating the explicit preview host","No Safari or real mobile device testing performed"]
+}

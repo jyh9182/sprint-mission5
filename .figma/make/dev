@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+export LESSONCONNECT_FIGMA_PREVIEW_HOST=app-krch6l2uibdz7k2hanlxfjulgqp44j6wnndvv6s5lq4wyzy6dyin.makeproxy-c.figma.site
+exec npx next dev --webpack --hostname "${FIGMA_DEV_SERVER_HOST:-0.0.0.0}" --port "${PORT:?PORT must be provided}"

@@ -1,0 +1,13 @@
+import {chromium} from '@playwright/test';
+const browser=await chromium.launch();
+const page=await browser.newPage({viewport:{width:1440,height:900}});
+page.on('pageerror',e=>console.log('PAGE_ERROR',e.stack));
+page.on('console',m=>{if(['error','warning'].includes(m.type()))console.log('CONSOLE',m.type(),m.text())});
+page.on('requestfailed',r=>console.log('REQUEST_FAILED',r.url(),r.failure()?.errorText));
+page.on('response',r=>{if(r.status()>=400)console.log('HTTP_ERROR',r.status(),r.url())});
+await page.goto(process.env.LANDING_TEST_URL,{waitUntil:'networkidle',timeout:60000});
+await page.getByRole('button',{name:'AI 맞춤 강사 찾기',exact:true}).click();
+await page.waitForTimeout(1500);
+console.log('RESULT',JSON.stringify(await page.evaluate(()=>({ready:document.readyState,dialogOpen:document.querySelector('dialog')?.open,scripts:Array.from(document.scripts).map(s=>({src:s.src,type:s.type,text:s.src?undefined:s.textContent?.slice(0,180)}))}))));
+await page.screenshot({path:'runtime-diagnostic.png',fullPage:false});
+await browser.close();

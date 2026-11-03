@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# Resumed Figma workspaces can retain a partially installed dependency tree.
+# Move generated dependencies aside before npm ci to avoid ENOTEMPTY cleanup races.
+if [ -d node_modules ]; then
+  figma_deps_backup="$(mktemp -d /tmp/lessonconnect-deps.XXXXXX)"
+  mv node_modules "$figma_deps_backup/node_modules"
+fi
+npm ci --no-audit --no-fund
